@@ -1,0 +1,252 @@
+.cm1_error {
+  color: red;
+  font-size: 15px;
+  text-align: center;
+  /* font-weight: 500; */
+}
+
+.cm1_page_title {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.cm1_body_top {
+  display: flex;
+}
+
+.cm1_top_card {
+  width: 25%;
+  margin: 2px 10px;
+  height: 90px;
+  border-radius: 6px;
+  background: black;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+.cm1_top_card:nth-child(1) {
+  background-image: linear-gradient(to right, #2bc6b7, #41e396);
+}
+.cm1_top_card:nth-child(2) {
+  background-image: linear-gradient(to right, #a054f2, #db69df);
+}
+.cm1_top_card:nth-child(3) {
+  background-image: linear-gradient(to right, #8e6bfd, #5cc4f3);
+}
+.cm1_top_card:nth-child(4) {
+  background-image: linear-gradient(to right, #ffb32a, #fa84a3);
+}
+
+.cm1_top_card_a {
+  font-size: 30px;
+  padding: 20px;
+}
+
+/* //////////////////////table///////////////// */
+.cm1_tb {
+  margin: 5px 10px;
+  border: 0.5px solid rgb(238, 238, 238);
+  /* overflow: auto; */
+  height: 100%;
+}
+
+.cm1_tb_top {
+  width: calc(100% - 30px);
+  padding: 8px 15px;
+  background: #e6f3ff;
+  font-weight: bold;
+  color: rgb(58, 58, 58);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.cm1_tb_top_sr {
+  border-width: 0px;
+  background: white;
+  padding: 8px;
+  border-radius: 3px;
+  width: 240px;
+}
+
+.cm1_tb_top_fl {
+  background: var(--pcolor);
+  padding: 5px 15px;
+  border-radius: 3px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cm1_tb_rw {
+  border-bottom: 0.5px solid rgb(238, 238, 238);
+  padding: 8px 15px;
+  font-size: 12px;
+  color: gray;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.cm1_tb_head {
+  color: rgb(65, 65, 65);
+  font-weight: bold;
+  border-bottom: 0.5px solid rgb(238, 238, 238);
+  padding: 8px 15px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cm1_tb_body {
+  overflow: auto;
+  height: calc(100% - 220px);
+}
+
+.tr_5 {
+  width: 5%;
+  padding-right: 5px;
+}
+.tr1_5 {
+  width: 15%;
+  padding-right: 5px;
+}
+.tr1 {
+  width: 10%;
+  padding-right: 5px;
+}
+.tr2 {
+  width: 20%;
+  padding-right: 5px;
+}
+.tr3 {
+  width: 30%;
+  padding-right: 5px;
+}
+.tr4 {
+  width: 40%;
+  padding-right: 5px;
+}
+.tr5 {
+  width: 50%;
+  padding-right: 5px;
+}
+.tr6 {
+  width: 60%;
+  padding-right: 5px;
+}
+.tr7 {
+  width: 70%;
+  padding-right: 5px;
+}
+.tr8 {
+  width: 80%;
+  padding-right: 5px;
+}
+
+.cm1_tb_pp {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.cm1_tb_ppbd {
+  background: white;
+  border-radius: 1px;
+}
+  
+.cm1_tb_a {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7e7e7e;
+}
+
+/* /////////////////textbix///////////////// */
+.cm1_tb1_a {
+  font-size: 12px;
+  color: #494949;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.cm1_tb1_b {
+  font-size: 12px;
+  color: #494949;
+  font-weight: bold;
+  margin-left: 4px;
+  margin-right: 50px;
+}
+
+.cm1_tb1_ab {
+  width: 280px;
+  padding: 8px;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border: 2px solid rgb(204, 204, 204);
+  border-radius: 2px;
+  font-family: sans-serif;
+  outline: none;
+}
+
+.cm1_tb1_ab1 {
+  width: calc(100% - 20px);
+  padding: 5px;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border: 2px solid rgb(204, 204, 204);
+  border-radius: 2px;
+  font-family: sans-serif;
+  outline: none;
+}
+
+.cm1_abox_a {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #0000002c;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10px;
+  overflow: auto;
+}
+
+.cm1_abox_b {
+  background-color: white;
+  padding: 1%;
+}
+
+.cm1_abox_c {
+  padding: 1% 2%;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  color: #242424;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cm1_abox_d {
+  cursor: pointer;
+  font-size: 18px;
+}
