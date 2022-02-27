@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // var base = "https://apisetes.herokuapp.com/";
-base = "http://localhost:3010/";
+var base = "http://localhost:3010/";
 const baseapi = base + "admin/";
 
 export async function api_init_get(api, setdata, seterror) {
