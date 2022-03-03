@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // var base = "https://apisetes.herokuapp.com/";
-var base = "http://18.116.136.111:8000/";
+var base = "https://setes.cloudns.ph:8000/";
 const baseapi = base + "admin/";
 
 export async function api_init_get(api, setdata, seterror) {
