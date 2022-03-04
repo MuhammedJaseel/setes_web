@@ -94,7 +94,12 @@ export default function Aslot({ props }) {
                   </div>
                 ) : null}
                 {slotTypeforAdd === "t" ? (
-                  <Textbox1 tit="Amount(One Truf)" id="price" ph="2000/-" />
+                  <Textbox1
+                    tit="Amount(One Truf)"
+                    id="price"
+                    ph="2000/-"
+                    type="number"
+                  />
                 ) : null}
               </div>
               <div className="cm1_error center">{slotErrorAdd}</div>
