@@ -3,7 +3,7 @@ import BodyTopbar from "../widget/body_topbar";
 import MyTable from "../widget/table";
 
 export default function ANotifications({ props }) {
-  const { sPage, noti, notis, notisT } = props.state;
+  const { sPage, notis, notisT } = props.state;
   const titles = [
     { title: "New Notifications", count: "" },
     { title: "All Notifications", count: "" },

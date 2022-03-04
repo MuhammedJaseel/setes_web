@@ -1,10 +1,9 @@
 import React from "react";
-import { AlertBox, AlertBoxBody1 } from "../widget/alertBox";
 import BodyTopbar from "../widget/body_topbar";
 import MyTable from "../widget/table";
 import { DropDown3, Textbox1 } from "../widget/textbox";
 import { DropDown2A, DropDown2B } from "../widget/textbox";
-import { aPostSlot, aDeleteSlot, aPutSlot } from "../method/a_slot";
+import { aPostSlot } from "../method/a_slot";
 import { trufTypes } from "../module/static_data";
 import { SlotPopup } from "../widget/a_slotPopup";
 

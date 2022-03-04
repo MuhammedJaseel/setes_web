@@ -1,10 +1,6 @@
-import {
-  api_init_delete,
-  api_init_get,
-  api_init_post,
-} from "../module/a_apiinit";
-import { api_init_put } from "../module/a_apiinit";
-import { aGetHome } from "./a_home";
+import { api_init_get, api_init_post } from "../module/a_apiinit";
+import { api_init_delete, api_init_put } from "../module/a_apiinit";
+import { aHomeReload } from "./a_home";
 
 export async function aPostSlot(e, props) {
   e.preventDefault();
@@ -30,7 +26,7 @@ export async function aPostSlot(e, props) {
   var clearForm = async () => {
     document.getElementById("slot_add_form").reset();
     setState({ slotPage: 0 });
-    await aGetHome(props);
+    await aHomeReload(props);
   };
   var setError = (v) => setState({ slotErrorAdd: v });
   await api_init_post("slot", body, clearForm, setError);
@@ -53,8 +49,9 @@ export async function aPutSlot(e, props) {
     slots: props.state.slotEdit.slots,
     ctaker: data.ctaker.value,
   };
-  var clearForm = () => {
+  var clearForm = async() => {
     alert("Succesfully Updated");
+    await aHomeReload(props);
   };
   var setError = (v) => setState({ slotErrorAdd: v });
   await api_init_put("slot?slot_id=" + slot_id, body, clearForm, setError);
@@ -67,7 +64,7 @@ export async function aDeleteSlot(props) {
   const setState = (v) => props.setState(v);
   setState({ slotLoadingAdd: true, slotErrorAdd: null });
   var clearForm = async () => {
-    await aGetHome(props);
+    await aHomeReload(props);
     setState({ slotEdit: null });
   };
   var setError = (v) => setState({ slotErrorAdd: v });

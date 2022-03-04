@@ -30,6 +30,7 @@ export default class PublicEventPage extends Component {
               <div className="pep2_m">
                 {[1, 1, 1].map((ur, k) => (
                   <img
+                    alt="Err"
                     src="https://i.stack.imgur.com/lzWhZ.jpg?s=64&g=1"
                     key={k}
                     className="pep2_n"

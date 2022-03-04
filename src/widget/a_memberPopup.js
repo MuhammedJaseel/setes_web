@@ -20,7 +20,7 @@ export function MemebrDetailsPopup({ props }) {
         <div className="hm3_f">
           {member.img !== null ? (
             <div className="hm3_k">
-              <img className="hm3_l" src={setUserImg(member.id, member.img)} />
+              <img alt="s_err" className="hm3_l" src={setUserImg(member.id, member.img)} />
             </div>
           ) : null}
           <div className="hm3_j">Personal Details</div>
@@ -93,9 +93,9 @@ export function MemebrDetailsPopup({ props }) {
               Payments
             </div>
           </div>
-          {page == 0 ? <div className="hm3_o">Bookings</div> : null}
-          {page == 1 ? <div className="hm3_o">Prime details</div> : null}
-          {page == 2 ? <div className="hm3_o">Payments</div> : null}
+          {page === 0 ? <div className="hm3_o">Bookings</div> : null}
+          {page === 1 ? <div className="hm3_o">Prime details</div> : null}
+          {page === 2 ? <div className="hm3_o">Payments</div> : null}
         </div>
       </div>
     </div>

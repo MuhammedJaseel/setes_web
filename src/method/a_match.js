@@ -9,7 +9,7 @@ export async function aGetHomeMatch(props) {
   aSetHomeMatch(props, error, data);
 }
 export function aSetHomeMatch(props, error, matchs) {
-  const setType = (v) => (v.type == "s" ? "Setes" : "Team");
+  const setType = (v) => (v.type === "s" ? "Setes" : "Team");
   var matchsT = { all: [], expired: [], live: [], upcoming: [] };
   for (let i = 0; i < matchs.all.length; i++)
     matchsT.all.push([

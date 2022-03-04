@@ -1,5 +1,4 @@
 import React from "react";
-import { AlertBoxBody1 } from "../widget/alertBox";
 import { MemebrDetailsPopup } from "../widget/a_memberPopup";
 import BodyTopbar from "../widget/body_topbar";
 import MyTable from "../widget/table";
@@ -43,7 +42,6 @@ export default function AMembers({ props }) {
             { name: "Title", cl: "tr5" },
             { name: "Date", cl: "tr4" },
           ]}
-          onclick={() => {}}
           onclick={(v) => props.setState({ member: members.prime[v] })}
           items={membersT.prime}
         />

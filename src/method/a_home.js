@@ -72,7 +72,7 @@ export async function aGetHome(props) {
 }
 
 // TODO:
-async function aGetHomeAssets(props) {
+export async function aGetHomeAssets(props) {
   const setState = (v) => props.setState(v);
   var data;
   var setdata = (v) => (data = v);

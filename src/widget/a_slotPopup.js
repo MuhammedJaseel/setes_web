@@ -43,7 +43,7 @@ export function SlotPopup({ props }) {
           <div className="hm3_g">
             <div className="hm3_h">Status</div>
             <div className="hm3_i">
-              {slot.status == "0" ? "Opened" : "Closed"}
+              {slot.status === "0" ? "Opened" : "Closed"}
             </div>
           </div>
           <div className="hm3_g">

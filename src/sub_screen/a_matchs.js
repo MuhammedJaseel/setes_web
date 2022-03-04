@@ -1,10 +1,9 @@
 import React from "react";
-import { AlertBox, AlertBoxBody1 } from "../widget/alertBox";
 import BodyTopbar from "../widget/body_topbar";
 import MyTable from "../widget/table";
 
 export default function AMatch({ props }) {
-  const { sPage, match, matchs, matchsT } = props.state;
+  const { sPage, matchs, matchsT } = props.state;
   const setState = (v) => props.setState(v);
   const titles = [
     { title: "Live Match", count: "" },

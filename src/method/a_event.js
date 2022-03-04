@@ -1,9 +1,6 @@
-import {
-  api_init_delete,
-  api_init_get,
-  api_init_post,
-  api_init_put,
-} from "../module/a_apiinit";
+import { api_init_delete, api_init_get } from "../module/a_apiinit";
+import { api_init_post, api_init_put } from "../module/a_apiinit";
+import { aHomeReload } from "./a_home";
 
 export async function aPostEvent(e, props) {
   const setState = (v) => props.setState(v);
@@ -22,7 +19,10 @@ export async function aPostEvent(e, props) {
     gpsloc: data.gpsloc.value,
   };
   formData.append("body", JSON.stringify(body));
-  var clearForm = () => document.getElementById("bid_add_form").reset();
+  var clearForm = async () => {
+    document.getElementById("bid_add_form").reset();
+    await aHomeReload(props);
+  };
   var setError = (v) => setState({ eventErrorAdd: v });
   await api_init_post("event", formData, clearForm, setError);
   setState({ eventLoadingAdd: false, eventPage: 0 });
@@ -46,7 +46,9 @@ export async function aPutEvent(e, props) {
     gpsloc: data.gpsloc.value,
   };
   formData.append("body", JSON.stringify(body));
-  var clearForm = () => {};
+  var clearForm = async() => {
+    await aHomeReload(props);
+  };
   var setError = (v) => setState({ eventErrorAdd: v });
   await api_init_put(
     "event?event_id=" + event_id,
@@ -62,7 +64,10 @@ export async function aDeleteEvent(props) {
   const event_id = props.state.eventEdit._id;
   const setState = (v) => props.setState(v);
   setState({ eventLoadingAdd: true, eventErrorAdd: null });
-  var clearForm = () => setState({ eventEdit: null });
+  var clearForm = async () => {
+    setState({ eventEdit: null });
+    await aHomeReload(props);
+  };
   var setError = (v) => setState({ eventErrorAdd: v });
   if (window.confirm("Confirm Delete"))
     await api_init_delete("event?event_id=" + event_id, clearForm, setError);

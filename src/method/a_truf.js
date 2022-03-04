@@ -1,10 +1,6 @@
-import {
-  api_init_delete,
-  api_init_get,
-  api_init_post,
-  api_init_put,
-} from "../module/a_apiinit";
-import { aGetHome } from "./a_home";
+import { api_init_delete, api_init_get } from "../module/a_apiinit";
+import { api_init_post, api_init_put } from "../module/a_apiinit";
+import { aHomeReload } from "./a_home";
 
 export async function aPostTruf(e, props) {
   e.preventDefault();
@@ -31,7 +27,6 @@ export async function aPostTruf(e, props) {
     zone: props.state.assets.locations[0].zone[data.district.value].zone[
       data.zone.value
     ].title,
-    location: data.location.value,
     lat: data.lat.value,
     lon: data.lon.value,
     desc: data.desc.value,
@@ -40,7 +35,7 @@ export async function aPostTruf(e, props) {
   var clearForm = async () => {
     document.getElementById("truf_add_form").reset();
     setState({ trufPage: 0 });
-    await aGetHome(props);
+    await aHomeReload(props);
   };
   var setError = (v) => setState({ trufErrorAdd: v });
   await api_init_post("truf", formData, clearForm, setError);
@@ -78,8 +73,9 @@ export async function aPutTruf(e, props) {
     slots: props.state.trufEdit.slots,
   };
   formData.append("body", JSON.stringify(body));
-  var clearForm = () => {
+  var clearForm = async () => {
     alert("Succesfully Updated");
+    await aHomeReload(props);
   };
   var setError = (v) => setState({ trufErrorAdd: v });
   await api_init_put("truf?truf_id=" + truf_id, formData, clearForm, setError);
@@ -92,7 +88,7 @@ export async function aDeleteTruf(props) {
   const setState = (v) => props.setState(v);
   setState({ trufLoadingAdd: true, trufErrorAdd: null });
   var clearForm = async () => {
-    await aGetHome(props);
+    await aHomeReload(props);
     setState({ trufEdit: null });
   };
   var setError = (v) => setState({ trufErrorAdd: v });
