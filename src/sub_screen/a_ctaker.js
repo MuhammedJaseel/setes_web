@@ -103,7 +103,7 @@ export default function ACtaker({ props }) {
                 <div className="hm1_baf1_ac">
                   <DropDown1 tit="Caretaker Type" id="type" data={adminTypes} />
                   <Textbox1 tit="Name" id="user_name" ph="User Name" />
-                  <Textbox1 tit="Name" id="password" ph="Password" />
+                  <Textbox1 tit="Password" id="password" ph="Password" />
                 </div>
               </div>
               <div className="cm1_error center">{sError}</div>

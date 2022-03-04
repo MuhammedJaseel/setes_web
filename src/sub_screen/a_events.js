@@ -35,9 +35,15 @@ export default function AEvents({ props }) {
                       id="sub_title"
                       dv={eventEdit.sub_title}
                     />
+                    <Textbox1
+                      tit="Location"
+                      id="location"
+                      dv={eventEdit.location}
+                    />
                   </div>
                   <div className="hm1_baf1_ac">
-                    <Textbox2 tit="Date" id="date" dv={eventEdit.date} />
+                    <Textbox2 tit="Date" id="s_date" dv={eventEdit.s_date} />
+                    <Textbox2 tit="Date" id="e_date" dv={eventEdit.e_date} />
                     <Textbox1
                       tit="Location"
                       id="gpsloc"
@@ -115,9 +121,15 @@ export default function AEvents({ props }) {
                     id="sub_title"
                     ph="Event Sub Title"
                   />
+                  <Textbox1
+                    tit="Location"
+                    id="location"
+                    ph="Place, District,..."
+                  />
                 </div>
                 <div className="hm1_baf1_ac">
-                  <Textbox2 tit="Starting Date" id="date" />
+                  <Textbox2 tit="Starting Date" id="s_date" />
+                  <Textbox2 tit="Ending Date" id="e_date" />
                   <Textbox1 tit="Location" id="gpsloc" ph="0.1221,23.34345" />
                   <Textbox4 tit="Choose a photo" id="img" />
                 </div>

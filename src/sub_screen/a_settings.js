@@ -102,7 +102,7 @@ export default function ASettings({ props }) {
                 <div className="hm1_baf1_ac">
                   <DropDown1 tit="Admin Type" id="type" data={adminTypes} />
                   <Textbox1 tit="Name" id="user_name" ph="User Name" />
-                  <Textbox1 tit="Name" id="password" ph="Password" />
+                  <Textbox1 tit="Password" id="password" ph="Password" />
                 </div>
               </div>
               <div className="cm1_error center">{sError}</div>

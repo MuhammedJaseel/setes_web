@@ -15,8 +15,10 @@ export async function aPostEvent(e, props) {
     title: data.title.value,
     sub_title: data.sub_title.value,
     desc: data.desc.value,
-    date: data.date.value,
+    s_date: data.s_date.value,
+    e_date: data.e_date.value,
     gpsloc: data.gpsloc.value,
+    location: data.location.value,
   };
   formData.append("body", JSON.stringify(body));
   var clearForm = async () => {
@@ -42,11 +44,13 @@ export async function aPutEvent(e, props) {
     title: data.title.value,
     sub_title: data.sub_title.value,
     desc: data.desc.value,
-    date: data.date.value,
+    s_date: data.s_date.value,
+    e_date: data.e_date.value,
     gpsloc: data.gpsloc.value,
+    location: data.location.value,
   };
   formData.append("body", JSON.stringify(body));
-  var clearForm = async() => {
+  var clearForm = async () => {
     await aHomeReload(props);
   };
   var setError = (v) => setState({ eventErrorAdd: v });
