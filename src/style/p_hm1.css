@@ -41,7 +41,7 @@
 .p_hm1_j {
   width: 100%;
   max-width: 300px;
-  filter: brightness(80%);
+  filter: brightness(70%);
 }
 .p_hm1_k {
   display: flex;
@@ -63,12 +63,15 @@
     display: block;
   }
   .p_hm1_j {
-    width: 80vw;
+    width: 50vw;
+  }
+  .p_hm1_h {
+    align-items: center;
   }
   .p_hm1_i {
     font-size: 15px;
     padding-bottom: 10px;
-    padding-top: 30px;
+    padding-top: 50px;
   }
   .p_hm1_f {
     width: 150px;
