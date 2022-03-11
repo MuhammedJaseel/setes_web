@@ -17,7 +17,7 @@ export default class PublicHomePage extends Component {
         </div>
         <div className="p_hm1_d">
           <div className="p_hm1_e">
-            <img className="p_hm1_f" src={setesLogo} />
+            <img alt="jhg" className="p_hm1_f" src={setesLogo} />
             <div className="p_hm1_g">
               Sport pertains to any form of competitive physical activity or
               game that aims to use, maintain or improve physical ability and
@@ -28,10 +28,10 @@ export default class PublicHomePage extends Component {
           </div>
           <div className="p_hm1_h">
             <div className="p_hm1_i">Get App</div>
-            <img className="p_hm1_j" src={setesApp} />
+            <img alt="jhg" className="p_hm1_j" src={setesApp} />
             <div className="p_hm1_k">
-              <img className="p_hm1_l" src={playstore} />
-              <img className="p_hm1_l" src={appstore} />
+              <img alt="jhg" className="p_hm1_l" src={playstore} />
+              <img alt="jhg" className="p_hm1_l" src={appstore} />
             </div>
           </div>
         </div>

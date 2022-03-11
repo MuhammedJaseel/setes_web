@@ -1,13 +1,14 @@
 import axios from "axios";
 
-// var base = "https://apisetes.herokuapp.com/";
-var base = "https://setes.cloudns.ph:8000/";
+
+export const wsUrl = "wss://setes.in:8000/";
+var base = "https://setes.in:8000/";
 const baseapi = base + "admin/";
 
 export async function api_init_get(api, setdata, seterror) {
   var headers = {
     key: sessionStorage.getItem("authKey"),
-    user_name: sessionStorage.getItem("userName"),
+    user_id: sessionStorage.getItem("userId"),
   };
   await axios
     .get(baseapi + api, { headers })
@@ -15,7 +16,8 @@ export async function api_init_get(api, setdata, seterror) {
     .catch((err) => {
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401) window.location.replace("login");
+      else if (err.response.status === 401)
+        window.location.replace("admin/login");
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
@@ -25,7 +27,7 @@ export async function api_init_get(api, setdata, seterror) {
 export async function api_init_post(api, body, setdata, seterror) {
   var headers = {
     key: sessionStorage.getItem("authKey"),
-    user_name: sessionStorage.getItem("userName"),
+    user_id: sessionStorage.getItem("userId"),
   };
   await axios
     .post(baseapi + api, body, { headers })
@@ -34,7 +36,8 @@ export async function api_init_post(api, body, setdata, seterror) {
       console.log(err.toJSON());
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401) window.location.replace("login");
+      else if (err.response.status === 401)
+        window.location.replace("admin/login");
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
@@ -44,7 +47,7 @@ export async function api_init_post(api, body, setdata, seterror) {
 export async function api_init_put(api, body, setdata, seterror) {
   var headers = {
     key: sessionStorage.getItem("authKey"),
-    user_name: sessionStorage.getItem("userName"),
+    user_id: sessionStorage.getItem("userId"),
   };
   await axios
     .put(baseapi + api, body, { headers })
@@ -52,7 +55,8 @@ export async function api_init_put(api, body, setdata, seterror) {
     .catch((err) => {
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401) window.location.replace("login");
+      else if (err.response.status === 401)
+        window.location.replace("admin/login");
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
@@ -62,7 +66,7 @@ export async function api_init_put(api, body, setdata, seterror) {
 export async function api_init_delete(api, setdata, seterror) {
   var headers = {
     key: sessionStorage.getItem("authKey"),
-    user_name: sessionStorage.getItem("userName"),
+    user_id: sessionStorage.getItem("userId"),
   };
   await axios
     .delete(baseapi + api, { headers })
@@ -70,7 +74,8 @@ export async function api_init_delete(api, setdata, seterror) {
     .catch((err) => {
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401) window.location.replace("login");
+      else if (err.response.status === 401)
+        window.location.replace("admin/login");
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
