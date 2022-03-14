@@ -13,9 +13,15 @@ export default function App() {
     if (subpath === "login") return <AdmimLoginScreen />;
     return <AdminHomePage />;
   }
-  if (path === "events") return <PublicEventsPage />;
-  if (path === "event") return <PublicEventPage />;
-  if (path === "policy") return <PolicyScreen />;
+  if (path === "events") {
+    return <PublicEventsPage />;
+  }
+  if (path === "event") {
+    return <PublicEventPage />;
+  }
+  if (path === "policy") {
+    return <PolicyScreen />;
+  }
   return <PublicHomePage />;
 }
 

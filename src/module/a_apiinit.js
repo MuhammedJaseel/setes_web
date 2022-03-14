@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const wsUrl = "wss://setes.in:8000/";
 var base = "https://setes.in:8000/";
 const baseapi = base + "admin/";
@@ -16,8 +15,7 @@ export async function api_init_get(api, setdata, seterror) {
     .catch((err) => {
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401)
-        window.location.replace("admin/login");
+      else if (err.response.status === 401) window.location = "admin/login";
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
@@ -36,8 +34,7 @@ export async function api_init_post(api, body, setdata, seterror) {
       console.log(err.toJSON());
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401)
-        window.location.replace("admin/login");
+      else if (err.response.status === 401) window.location = "admin/login";
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
@@ -55,8 +52,7 @@ export async function api_init_put(api, body, setdata, seterror) {
     .catch((err) => {
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401)
-        window.location.replace("admin/login");
+      else if (err.response.status === 401) window.location = "admin/login";
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
@@ -74,8 +70,7 @@ export async function api_init_delete(api, setdata, seterror) {
     .catch((err) => {
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
-      else if (err.response.status === 401)
-        window.location.replace("admin/login");
+      else if (err.response.status === 401) window.location = "admin/login";
       else if (err.response.status === 400) seterror(err.response.data.msg);
       else seterror("Error");
     });
