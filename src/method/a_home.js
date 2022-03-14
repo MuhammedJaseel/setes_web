@@ -1,3 +1,4 @@
+import addNotification from "react-push-notification";
 import { api_init_get } from "../module/a_apiinit";
 import { aGetHomeBookings_s, aGetHomeBookings_t } from "./a_booking";
 import { aSetHomeBookings_s, aSetHomeBookings_t } from "./a_booking";
@@ -56,18 +57,20 @@ export async function aGetHome(props) {
   var setdata = (v) => (data = v);
   var seterror = (v) => (error = v);
   await api_init_get("home", setdata, seterror);
-  aSetHomeNoti(props, error, data.notis);
-  aSetHomeMember(props, error, data.members);
-  aSetHomeEvent(props, error, data.events);
-  aSetHomeTrufs(props, error, data.trufs);
-  aSetHomeSlots_t(props, error, data.slots.team);
-  aSetHomeSlots_s(props, error, data.slots.setes);
-  aSetHomeMatch(props, error, data.matchs);
-  aSetHomeBookings_t(props, error, data.bookings.team);
-  aSetHomeBookings_s(props, error, data.bookings.setes);
-  aSetHomeCtakers(props, error, data.ctakers);
-  aSetHomeAdmins(props, error, data.admins);
-  setState({ assets: data.assets });
+  if (error === null) {
+    aSetHomeNoti(props, error, data.notis);
+    aSetHomeMember(props, error, data.members);
+    aSetHomeEvent(props, error, data.events);
+    aSetHomeTrufs(props, error, data.trufs);
+    aSetHomeSlots_t(props, error, data.slots.team);
+    aSetHomeSlots_s(props, error, data.slots.setes);
+    aSetHomeMatch(props, error, data.matchs);
+    aSetHomeBookings_t(props, error, data.bookings.team);
+    aSetHomeBookings_s(props, error, data.bookings.setes);
+    aSetHomeCtakers(props, error, data.ctakers);
+    aSetHomeAdmins(props, error, data.admins);
+    setState({ assets: data.assets });
+  } else setState({ error });
   setState({ loading: 100 });
 }
 
@@ -78,4 +81,26 @@ export async function aGetHomeAssets(props) {
   var setdata = (v) => (data = v);
   await api_init_get("assets", setdata, () => {});
   setState({ assets: data });
+}
+
+export function onsocketMsg(message, props) {
+  var msgs = message.data.split("|");
+  for (let i = 0; i < msgs.length; i++) {
+    if (msgs[i] === "noti") {
+      aGetHomeNoti(props);
+      addNotification({
+        title: "You have a new notification",
+        subtitle: "You have a new notification",
+        message: "You have a new notification",
+        theme: "darkblue",
+        native: true,
+      });
+    }
+    if (msgs[i] === "users") aGetHomeMember(props);
+    if (msgs[i] === "events") aGetHomeEvent(props);
+    if (msgs[i] === "trufs") aGetHomeTrufs(props);
+    // if (msgs[i] === "slots") aHomeReload(4);
+    if (msgs[i] === "matchs") aGetHomeMatch(props);
+    // if (msgs[i] === "bookings") aHomeReload(6);
+  }
 }

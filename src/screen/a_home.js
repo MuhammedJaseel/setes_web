@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import SideBar from "../widget/sidebar";
 import { Loading } from "../widget/warnings";
 import { adminLogOut } from "../method/a_login";
-import { aGetHome, aHomeReload } from "../method/a_home";
+import { aGetHome, aHomeReload, onsocketMsg } from "../method/a_home";
 
 import logoutIcon from "../asset/logout_icon.png";
 import maxIcon from "../asset/maximize_icon.png";
@@ -35,7 +35,6 @@ import AAssets from "../sub_screen/a_asset";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { wsUrl } from "../module/a_apiinit";
-var client = new W3CWebSocket(wsUrl);
 
 export default class AdminHomePage extends Component {
   constructor() {
@@ -107,19 +106,9 @@ export default class AdminHomePage extends Component {
   }
 
   connectSocket() {
+    var client = new W3CWebSocket(wsUrl + sessionStorage.getItem("userId"));
     client.onopen = () => {};
-    client.onmessage = (message) => {
-      var msgs = message.data.split("|");
-      for (let i = 0; i < msgs.length; i++) {
-        if (msgs[i] === "noti") aHomeReload(0);
-        if (msgs[i] === "users") aHomeReload(1);
-        if (msgs[i] === "events") aHomeReload(2);
-        if (msgs[i] === "trufs") aHomeReload(3);
-        if (msgs[i] === "slots") aHomeReload(4);
-        if (msgs[i] === "matchs") aHomeReload(5);
-        if (msgs[i] === "bookings") aHomeReload(6);
-      }
-    };
+    client.onmessage = (m) => onsocketMsg(m, this);
     client.onclose = () => setTimeout(() => this.connectSocket(), 10000);
   }
 

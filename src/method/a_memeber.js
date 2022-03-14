@@ -10,12 +10,14 @@ export async function aGetHomeMember(props) {
 }
 export function aSetHomeMember(props, error, members) {
   var membersT = { all: [], prime: [], guest: [], blocked: [] };
-  for (let i = 0; i < members.all.length; i++)
+  for (let i = 0; i < members.all.length; i++) {
+    const m = members.all[i];
     membersT.all.push([
-      [members.all[i].id, members.all[i].name],
-      [members.all[i].phone, members.all[i].email],
-      [members.all[i].prime ? "Prime" : "Not Prime"],
+      [m.id, m.name],
+      [m.phone, m.email],
+      [m.prime ? "Prime" : "Not Prime"],
     ]);
+  }
   for (let i = 0; i < members.prime.length; i++)
     membersT.prime.push([
       [members.prime[i].id, members.prime[i].name],

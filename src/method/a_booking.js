@@ -35,7 +35,5 @@ export function aSetHomeBookings_s(props, error, data) {
       [data[i].date, data[i].type],
       [data[i].created, data[i].status],
     ]);
-  console.log(dataT);
-
   props.setState({ sbookings: data, sbookingsT: dataT, error });
 }

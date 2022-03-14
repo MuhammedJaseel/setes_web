@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const wsUrl = "wss://setes.in:8000/";
+export const wsUrl = "wss://setes.in:8000/admins/";
 var base = "https://setes.in:8000/";
 const baseapi = base + "admin/";
 
@@ -13,6 +13,7 @@ export async function api_init_get(api, setdata, seterror) {
     .get(baseapi + api, { headers })
     .then((res) => setdata(res.data))
     .catch((err) => {
+      console.log(err.response.status);
       if (err.toJSON().message === "Network Error")
         seterror("Check Your Internet");
       else if (err.response.status === 401) window.location = "admin/login";
