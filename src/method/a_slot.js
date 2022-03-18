@@ -5,11 +5,6 @@ import { aHomeReload } from "./a_home";
 export async function aPostSlot(e, props) {
   e.preventDefault();
   const setState = (v) => props.setState(v);
-  const slotType = props.state.slotTypeforAdd;
-  if (slotType === null) {
-    setState({ slotErrorAdd: "Chose Type" });
-    return;
-  }
   var data = e.target;
   setState({ slotLoadingAdd: true, slotErrorAdd: null });
   var body = {
@@ -19,7 +14,6 @@ export async function aPostSlot(e, props) {
     truf__id: props.state.trufs[data.truf.value]._id,
     truf_id: props.state.trufs[data.truf.value].id,
     truf_name: props.state.trufs[data.truf.value].name,
-    type: slotType,
     price: data.price.value * 100,
     ctaker: data.ctaker.value,
   };
