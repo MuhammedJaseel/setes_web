@@ -49,7 +49,7 @@ export async function aPutSlot(e, props) {
     slots: props.state.slotEdit.slots,
     ctaker: data.ctaker.value,
   };
-  var clearForm = async() => {
+  var clearForm = async () => {
     alert("Succesfully Updated");
     await aHomeReload(props);
   };
@@ -89,16 +89,16 @@ export async function aRemoveSlotSlot(props, k) {
   setState({ slotEdit });
 }
 
-export async function aGetHomeSlots_t(props) {
+export async function aGetHomeSlots(props) {
   var error = null;
   var data;
   var setdata = (v) => (data = v);
   var seterror = (v) => (error = v);
-  await api_init_get("slots?type=t", setdata, seterror);
-  aSetHomeSlots_t(props, error, data);
+  await api_init_get("slots", setdata, seterror);
+  aSetHomeSlots(props, error, data);
 }
 
-export function aSetHomeSlots_t(props, error, data) {
+export function aSetHomeSlots(props, error, data) {
   var dataT = [];
   for (let i = 0; i < data.length; i++)
     dataT.push([
@@ -106,25 +106,5 @@ export function aSetHomeSlots_t(props, error, data) {
       [data[i].ground, data[i].price / 100],
       [data[i].s_time + " - " + data[i].e_time, data[i].status],
     ]);
-  props.setState({ slotsTeam: data, slotsTeamT: dataT, error });
-}
-
-export async function aGetHomeSlots_s(props) {
-  var error = null;
-  var data;
-  var setdata = (v) => (data = v);
-  var seterror = (v) => (error = v);
-  await api_init_get("slots?type=s", setdata, seterror);
-  aSetHomeSlots_s(props, error, data);
-}
-
-export function aSetHomeSlots_s(props, error, data) {
-  var dataT = [];
-  for (let i = 0; i < data.length; i++)
-    dataT.push([
-      [data[i].truf_name, data[i].truf_id],
-      [data[i].ground, data[i].price / 100],
-      [data[i].s_time + " - " + data[i].e_time, data[i].status],
-    ]);
-  props.setState({ slotsSetes: data, slotsSetesT: dataT, error });
+  props.setState({ slots: data, slotsT: dataT, error });
 }

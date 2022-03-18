@@ -76,14 +76,11 @@ export default class AdminHomePage extends Component {
       trufEdit: null,
 
       slot: null,
-      slotsSetes: [],
-      slotsSetesT: [],
-      slotsTeam: [],
-      slotsTeamT: [],
+      slots: [],
+      slotsT: [],
       slotLoadingAdd: false,
       slotErrorAdd: null,
       slotEdit: null,
-      slotTypeforAdd: null,
 
       match: null,
       matchs: [],
@@ -98,10 +95,8 @@ export default class AdminHomePage extends Component {
       adminsT: [],
 
       booking: null,
-      sbookings: [],
-      sbookingsT: [],
-      tbookings: [],
-      tbookingsT: [],
+      bookings: [],
+      bookingsT: [],
     };
   }
 

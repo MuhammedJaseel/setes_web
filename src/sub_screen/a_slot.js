@@ -8,14 +8,13 @@ import { trufTypes } from "../module/static_data";
 import { SlotPopup } from "../widget/a_slotPopup";
 
 export default function Aslot({ props }) {
-  const { slotsSetesT, slotsTeamT, slotsSetes, slotsTeam, slot } = props.state;
+  const { slotsT, slots, slot } = props.state;
   const { sPage, slotLoadingAdd, slotErrorAdd, trufs } = props.state;
-  const { slotTypeforAdd, ctakers } = props.state;
+  const { ctakers } = props.state;
   const setState = (v) => props.setState(v);
 
   const titles = [
     { title: "Setes Slot", count: "" },
-    { title: "Team Slot", count: "" },
     { title: "Add Slot", count: "+" },
   ];
 
@@ -33,25 +32,11 @@ export default function Aslot({ props }) {
             { name: "Ground/Price", cl: "tr3" },
             { name: "Time/Status", cl: "tr2" },
           ]}
-          onclick={(v) => setState({ slot: slotsSetes[v] })}
-          items={slotsSetesT}
+          onclick={(v) => setState({ slot: slots[v] })}
+          items={slotsT}
         />
       ) : null}
       {sPage === 1 ? (
-        <MyTable
-          nosearch
-          nofilter
-          title="Team Slot"
-          titles={[
-            { name: "Truf Name/Id", cl: "tr4" },
-            { name: "Ground/Price", cl: "tr3" },
-            { name: "Time/Status", cl: "tr2" },
-          ]}
-          onclick={(v) => setState({ slot: slotsTeam[v] })}
-          items={slotsTeamT}
-        />
-      ) : null}
-      {sPage === 2 ? (
         <div className="hm1_baf1">
           <div className="cm1_tb_top">Create slot</div>
           <div className="hm1_baf1_formbody">
@@ -65,41 +50,9 @@ export default function Aslot({ props }) {
                   <DropDown3 tit="Ground" id="ground" data={trufTypes} />
                 </div>
                 <div className="hm1_baf1_ac">
-                  <input
-                    type="checkbox"
-                    checked={slotTypeforAdd === "s"}
-                    onChange={(v) => {
-                      if (slotTypeforAdd === "s")
-                        setState({ slotTypeforAdd: null });
-                      else setState({ slotTypeforAdd: "s" });
-                    }}
-                  />
-                  <div className="cm1_tb1_b">Setes Slot</div>
-                  <input
-                    type="checkbox"
-                    checked={slotTypeforAdd === "t"}
-                    onChange={(v) => {
-                      if (slotTypeforAdd === "t")
-                        setState({ slotTypeforAdd: null });
-                      else setState({ slotTypeforAdd: "t" });
-                    }}
-                  />
-                  <div className="cm1_tb1_b">Team Slot</div>
+                  <Textbox1 tit="Amount(Per/Head)" id="price" ph="150/-" />
+                  <DropDown2B tit="Care Taker" id="ctaker" data={ctakers} />
                 </div>
-                {slotTypeforAdd === "s" ? (
-                  <div className="hm1_baf1_ac">
-                    <Textbox1 tit="Amount(Per/Head)" id="price" ph="150/-" />
-                    <DropDown2B tit="Care Taker" id="ctaker" data={ctakers} />
-                  </div>
-                ) : null}
-                {slotTypeforAdd === "t" ? (
-                  <Textbox1
-                    tit="Amount(One Truf)"
-                    id="price"
-                    ph="2000/-"
-                    type="number"
-                  />
-                ) : null}
               </div>
               <div className="cm1_error center">{slotErrorAdd}</div>
               <div className="center">

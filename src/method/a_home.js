@@ -1,15 +1,13 @@
 import addNotification from "react-push-notification";
 import { api_init_get } from "../module/a_apiinit";
-import { aGetHomeBookings_s, aGetHomeBookings_t } from "./a_booking";
-import { aSetHomeBookings_s, aSetHomeBookings_t } from "./a_booking";
+import { aGetHomeBookings, aSetHomeBookings } from "./a_booking";
 import { aGetHomeCtakers, aSetHomeCtakers } from "./a_ctaker";
 import { aGetHomeEvent, aSetHomeEvent } from "./a_event";
 import { aGetHomeMatch, aSetHomeMatch } from "./a_match";
 import { aGetHomeMember, aSetHomeMember } from "./a_memeber";
 import { aGetHomeNoti, aSetHomeNoti } from "./a_noti";
 import { aGetHomeAdmins, aSetHomeAdmins } from "./a_settings";
-import { aGetHomeSlots_s, aGetHomeSlots_t } from "./a_slot";
-import { aSetHomeSlots_s, aSetHomeSlots_t } from "./a_slot";
+import { aGetHomeSlots, aSetHomeSlots } from "./a_slot";
 import { aGetHomeTrufs, aSetHomeTrufs } from "./a_truf";
 
 export async function aHomeReload(props) {
@@ -28,15 +26,13 @@ export async function aHomeReload(props) {
       await aGetHomeTrufs(props);
       break;
     case 4:
-      await aGetHomeSlots_t(props);
-      await aGetHomeSlots_s(props);
+      await aGetHomeSlots(props);
       break;
     case 5:
       await aGetHomeMatch(props);
       break;
     case 6:
-      await aGetHomeBookings_t(props);
-      await aGetHomeBookings_s(props);
+      await aGetHomeBookings(props);
       break;
     case 7:
       await aGetHomeCtakers(props);
@@ -62,11 +58,9 @@ export async function aGetHome(props) {
     aSetHomeMember(props, error, data.members);
     aSetHomeEvent(props, error, data.events);
     aSetHomeTrufs(props, error, data.trufs);
-    aSetHomeSlots_t(props, error, data.slots.team);
-    aSetHomeSlots_s(props, error, data.slots.setes);
+    aSetHomeSlots(props, error, data.slots);
     aSetHomeMatch(props, error, data.matchs);
-    aSetHomeBookings_t(props, error, data.bookings.team);
-    aSetHomeBookings_s(props, error, data.bookings.setes);
+    aSetHomeBookings(props, error, data.bookings);
     aSetHomeCtakers(props, error, data.ctakers);
     aSetHomeAdmins(props, error, data.admins);
     setState({ assets: data.assets });
