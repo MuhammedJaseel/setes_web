@@ -1,6 +1,7 @@
 import React from "react";
 import AdminHomePage from "./screen/a_home";
 import AdmimLoginScreen from "./screen/a_login";
+import InviteScreen from "./screen/invite";
 import PublicEventPage from "./screen/p_event";
 import PublicEventsPage from "./screen/p_events";
 import PublicHomePage from "./screen/p_home";
@@ -21,6 +22,9 @@ export default function App() {
   }
   if (path === "policy") {
     return <PolicyScreen />;
+  }
+  if (path === "invite") {
+    return <InviteScreen />;
   }
   return <PublicHomePage />;
 }

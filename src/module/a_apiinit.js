@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const wsUrl = "wss://setes.in:8000/admins/";
-var base = "https://setes.in:8000/";
+export const base = "https://setes.in:8000/";
 const baseapi = base + "admin/";
 
 export async function api_init_get(api, setdata, seterror) {
