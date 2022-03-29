@@ -2,7 +2,7 @@ import React from "react";
 import { aPostAlert } from "../method/a_alert";
 import BodyTopbar from "../widget/body_topbar";
 import MyTable from "../widget/table";
-import { Textbox1, Textbox2, Textbox4 } from "../widget/textbox";
+import { Textbox1 } from "../widget/textbox";
 
 export default function AAlert({ props }) {
   const titles = [
@@ -39,7 +39,10 @@ export default function AAlert({ props }) {
             Make Alert to {sPage === 1 ? "Public" : "Caretaker"}
           </div>
           <div className="hm1_baf1_formbody">
-            <form id="bid_add_form" onSubmit={(e) => aPostAlert(e, sPage)}>
+            <form
+              id="alert_add_form"
+              onSubmit={(e) => aPostAlert(e, sPage, props)}
+            >
               <div className="hm1_baf1_a">
                 <div className="hm1_baf1_ab">Details</div>
                 <Textbox1 tit="Title" id="title" ph="Event Title" />
