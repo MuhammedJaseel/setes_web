@@ -13,6 +13,7 @@ import bellIcon from "../asset/bell_icon.png";
 import alertedBell from "../asset/alerted_bell.png";
 import notiIcon from "../asset/notification_icon.png";
 import eventIcon from "../asset/events.png";
+import alertIcon from "../asset/alert.png";
 import trufIcon from "../asset/store.png";
 import slotIcon from "../asset/slot-machine.png";
 import bookingIcon from "../asset/booking.png";
@@ -35,6 +36,7 @@ import AAssets from "../sub_screen/a_asset";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { wsUrl } from "../module/a_apiinit";
+import AAlert from "../sub_screen/a_alert";
 
 export default class AdminHomePage extends Component {
   constructor() {
@@ -125,6 +127,11 @@ export default class AdminHomePage extends Component {
         icon: membersIcon,
         title: "Members",
         page: <AMembers props={this} />,
+      },
+      {
+        icon: alertIcon,
+        title: "Alerts",
+        page: <AAlert props={this} />,
       },
       {
         icon: eventIcon,

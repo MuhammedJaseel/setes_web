@@ -5,7 +5,6 @@ import { base } from "../module/a_apiinit";
 export default class InviteScreen extends Component {
   componentDidMount() {
     const id = window.location.pathname.split("/")[2] ?? "";
-
     axios
       .get("https://ipapi.co/json")
       .then((res) => {
