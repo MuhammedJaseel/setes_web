@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { base } from "../module/a_apiinit";
+// import { base } from "../module/a_apiinit";
 
 export default class InviteScreen extends Component {
   componentDidMount() {
@@ -8,17 +8,15 @@ export default class InviteScreen extends Component {
     axios
       .get("https://ipapi.co/json")
       .then((res) => {
-        console.log(res.data.ip);
         axios
-          .post(base + "invite", { ip: res.data.ip, id })
-          .then((res) => {
-            window.location = res.data;
-          })
+          .post("http://setes.in:8001/invite", { ip: res.data.ip, id })
+          // .post(base + "invite", { ip: res.data.ip, id })
+          .then((res) => (window.location = res.data))
           .catch(() => {});
       })
       .catch(() => {});
   }
   render() {
-    return <div></div>;
+    return <React.StrictMode></React.StrictMode>;
   }
 }
